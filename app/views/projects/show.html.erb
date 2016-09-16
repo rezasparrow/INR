@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @project.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @project.end_time %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @project.image %>
+</p>
+
+<div>
+  <strong>Avatar:</strong>
+  <%=image_tag @project.avatar.url %>
+</div>
+
+<p>
+  <strong>User_id:</strong>
+  <%= @project.user_id %>
+</p>
+
+<p>
+  <strong>nazer_id:</strong>
+  <%= @project.nazer_id %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

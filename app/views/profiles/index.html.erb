@@ -1,0 +1,192 @@
+
+
+<p id="notice"><%= notice %></p>
+<br>
+<br>
+<br>
+
+
+  <!--<h1 style="margin-right:5%">لیست پروفایل ها</h1>-->
+  <% if @user.role == "ادمین" %>
+  <div class="col-xs-12">
+                <table class="table table-striped table-hover">
+                <thead>
+     <% @profiles.each do |profile| %>
+        <% if profile.role == "پزشک" %> 
+                  <th class="maede_align"> <big><strong> پزشک <%= profile.name%> و لیست منشی و بیمارانش : </strong></big></th>
+                  <br>
+                <tr>
+<br>
+                  <th class="maede_align">
+                     نام
+                  </th>
+                  <th class="maede_align">
+                     ایمیل
+                  </th>
+                  <th class="maede_align">
+                     آدرس
+                  </th>
+                 <th class="maede_align">
+                     تلفن
+                  </th>
+                  <th class="maede_align">
+                     
+                  </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td><%= profile.role%> <%= profile.name%></td>
+                <td><%= profile.email%></td>
+                <td><%= profile.company_name%></td>
+                <td><%= profile.tel%></td>
+                <td ><%#= image_tag profile.avatar.url , style:"width:16%;height:26%;"%></td>
+                <td ><%#= link_to 'جزئيات بیشتر', profile , class:"btn btn-sh green hidden-print margin-bottom-5"%></td>
+                <td ><%= link_to 'ویرایش', edit_profile_path(profile) , class:"btn btn-sh blue hidden-print margin-bottom-5" %></td>
+                <td ><%= link_to 'حذف', deleting_profiles_path(profile.id),  data: { confirm: 'Are you sure?' } , class:"btn btn-sh red hidden-print margin-bottom-5" %></td>
+               </tr>  
+               
+                <% elsif %> 
+                <tbody>
+                <tr>
+
+                <td><%= profile.role%> <%= profile.name%></td>
+                <td><%= profile.email%></td>
+                <td><%= profile.company_name%></td>
+                <td><%= profile.tel%></td>
+                <td ><%#= image_tag profile.avatar.url , style:"width:16%;height:26%;"%></td>
+                <td ><%#= link_to 'جزئيات بیشتر', profile , class:"btn btn-sh green hidden-print margin-bottom-5"%></td>
+                <td ><%= link_to 'ویرایش', edit_profile_path(profile) , class:"btn btn-sh blue hidden-print margin-bottom-5" %></td>
+                <td ><%= link_to 'حذف', deleting_profiles_path(profile.id),  data: { confirm: 'Are you sure?' } , class:"btn btn-sh red hidden-print margin-bottom-5" %></td>
+               </tr>  
+                  
+                  
+                 <% end %>
+               <% end %>
+              <% end %>
+
+
+              
+
+
+
+
+
+<!-- ******************************************** pezeshk1 -->
+
+               <% if @user.role == "پزشک" %>
+
+                    <br>
+          <div class="col-xs-12">
+                <table class="table table-striped table-hover">
+                <thead>
+
+
+                 <th class="maede_align"> <big><strong> لیست بیماران داخل مطب : </strong></big></th>
+
+
+
+                <tr>
+
+                  <th class="maede_align">
+                     نام
+                  </th>
+                  <th class="maede_align">
+                     ایمیل
+                  </th>
+                  <th class="maede_align">
+                     آدرس
+                  </th>
+                 <th class="maede_align">
+                     تلفن
+                  </th>
+                  <th class="maede_align">
+                     
+                  </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                
+
+              <% @profiles.each do |profile| %>
+                <% if profile.inclinic == "بیمار داخل مطب" %>
+                <tr>
+               <td><%= profile.name%></td>
+                <td><%= profile.email%></td>
+                <td><%= profile.company_name%></td>
+                <td><%= profile.tel%></td>
+                <td ><%#= image_tag profile.avatar.url , style:"width:16%;height:26%;"%></td>
+                <td ><%#= link_to 'جزئيات بیشتر', profile , class:"btn btn-sh green hidden-print margin-bottom-5"%></td>
+                <td ><%= link_to 'مشاهده اطلاعات', deleting_profiles_path(profile.id),  data: { confirm: 'Are you sure?' } , class:"btn btn-sh red hidden-print margin-bottom-5" %></td>
+                <td ><%= link_to 'ویرایش کاربر', edit_profile_path(profile) , class:"btn btn-sh blue hidden-print margin-bottom-5" %></td>
+                <td ><%= link_to 'حذف کاربر', deleting_profiles_path(profile.id),  data: { confirm: 'Are you sure?' } , class:"btn btn-sh red hidden-print margin-bottom-5" %></td>
+               </tr>   
+                <% end %>
+               <% end %>
+              <% end %>
+
+
+<!-- ******************************************** pezeshk2 -->
+
+
+              <% if @user.role == "پزشک" %>
+                   <br>
+          <div class="col-xs-12">
+                <table class="table table-striped table-hover">
+                <thead>
+
+                <th class="maede_align"> <big><strong> لیست بیماران خارج از مطب : </strong></big></th>
+
+                <tr>
+
+                  <th class="maede_align">
+                     نام
+                  </th>
+                  <th class="maede_align">
+                     ایمیل
+                  </th>
+                  <th class="maede_align">
+                     آدرس
+                  </th>
+                 <th class="maede_align">
+                     تلفن
+                  </th>
+                  <th class="maede_align">
+                     
+                  </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                
+              <% @profiles.each do |profile| %>
+                <% if profile.inclinic == "بیمار خارج از مطب" %>
+                <tr>
+                <td><%= profile.name%></td>
+                <td><%= profile.email%></td>
+                <td><%= profile.company_name%></td>
+                <td><%= profile.tel%></td>
+                <td ><%#= image_tag profile.avatar.url , style:"width:16%;height:26%;"%></td>
+                <td ><%#= link_to 'جزئيات بیشتر', profile , class:"btn btn-sh green hidden-print margin-bottom-5"%></td>
+                <td ><%= link_to 'مشاهده اطلاعات', deleting_profiles_path(profile.id),  data: { confirm: 'Are you sure?' } , class:"btn btn-sh red hidden-print margin-bottom-5" %></td>
+                <td ><%= link_to 'ویرایش کاربر', edit_profile_path(profile) , class:"btn btn-sh blue hidden-print margin-bottom-5" %></td>
+                <td ><%= link_to 'حذف کاربر', deleting_profiles_path(profile.id),  data: { confirm: 'Are you sure?' } , class:"btn btn-sh red hidden-print margin-bottom-5" %></td>
+               </tr>   
+                <% end %>
+               <% end %>
+              <% end %>
+
+
+                
+                </tbody>
+                </table>
+              </div>
+
+
+<br>
+
+<%= link_to 'ایجاد کاربر', newUser_profiles_path ,class:"btn btn-sh green hidden-print margin-bottom-5",style:"margin-right:5%;margin-bottom:2%"%>
+ <br><br><br><br><br><br>
+

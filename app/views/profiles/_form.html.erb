@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<meta charset="utf-8"/>
+<title>Metronic | Form Stuff - Form Layouts</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
+<link href="/assets/css-profile/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="/assets/css-profile/simple-line-icons.min.css" rel="stylesheet" type="text/css">
+<!-- <link href="/assets/css-profile/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
+<link href="/assets/css-profile/uniform.default.css" rel="stylesheet" type="text/css">
+<link href="/assets/css-profile/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="/assets/css-profile/select2.css"/>
+<!-- END PAGE LEVEL SCRIPTS -->
+<!-- BEGIN THEME STYLES -->
+<link href="/assets/css-profile/components-rounded.css" id="style_components" rel="stylesheet" type="text/css"/>
+<link href="/assets/css-profile/plugins.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/acss-profile/layout.css" rel="stylesheet" type="text/css"/>
+<link id="style_color" href="/assets/css-profile/light.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css-profile/custom.css" rel="stylesheet" type="text/css"/>
+<!-- END THEME STYLES -->
+<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body class="page-header-fixed page-sidebar-closed-hide-logo ">
+  <div class="col-mod-7">
+      <div class="portlet box purple" style="margin-left:25%;margin-right:25%;margin-top:15%;">
+                      <div class="portlet-title">
+                        <div class="caption" style="margin-left:40%;" >
+                          فرم ایجاد پروفایل
+                        </div> 
+                        <div class="tools">
+                          <a href="javascript:;" class="collapse" data-original-title="" title="">
+                          </a>
+                          <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title="">
+                          </a>
+                          <a href="javascript:;" class="reload" data-original-title="" title="">
+                          </a>
+                          <a href="javascript:;" class="remove" data-original-title="" title="">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="portlet-body form">
+                        <!-- BEGIN FORM-->
+                        <%form_for Profile.new do |f|%>
+                        
+                          <% if @profile.errors.any? %>
+                            <div id="error_explanation">
+                              <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+                              <ul>
+                              <% @profile.errors.full_messages.each do |message| %>
+                                <li><%= message %></li>
+                              <% end %>
+                              </ul>
+                            </div>
+                          <% end %>
+                        <!-- <form > -->
+                        <div class="form-body">
+                            <div class="form-group">
+                              <label class="control-label">نام و نام خانوادگی</label>
+                              <%= f.text_field :name , class: "form-control"  ,placeholder:"نام و نام خانوادگی" %>
+<!--                               <input type="text" class="form-control" placeholder="Enter text"> -->
+                            </div>
+
+
+                          <div class="form-body">
+                            <div class="form-group">
+                              <label class="control-label">آدرس</label>
+                              <%= f.text_field :company_name , class: "form-control"  ,placeholder:"آدرس" %>
+<!--                               <input type="text" class="form-control" placeholder="Enter text"> -->
+                            </div>
+
+                       
+                            <div class="form-group">
+                              <label class="control-label">شماره تلفن</label>
+                              <%= f.text_field :tel , class: "form-control"  ,placeholder:"شماره تلفن" %>
+<!--                               <input type="text" class="form-control" placeholder="Enter text"> -->
+                            </div>
+
+
+                            <div class="form-group">
+                              <label class="control-label" >عکس</label>
+                              <%= f.file_field :avatar ,class: "form-control spinner" %>
+                              <!-- <input type="password" class="form-control spinner" placeholder="Password"> -->
+                            </div>
+                            <!-- <div class="form-group last">
+                              <label class="control-label">Static Control</label>
+                              <p class="form-control-static">
+                                 email@example.com
+                              </p>
+                            </div> -->
+                          </div>
+                          <div class="form-actions right">
+                          <%= f.submit  %>
+<!--                             <button type="submit" class="btn green">Submit</button>
+                            <button type="button" class="btn default">Cancel</button> -->
+                          </div>
+                          <% end %>
+                        <!-- </form> -->
+                        <!-- END FORM-->
+                      </div>
+                      </div>
+                    </div>
+
+<div class="page-footer">
+  <div class="page-footer-inner">
+     2014 &copy; Metronic by keenthemes.
+  </div>
+  <div class="scroll-to-top">
+    <i class="icon-arrow-up"></i>
+  </div>
+</div>
+<!-- END FOOTER -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="../../assets/global/plugins/respond.min.js"></script>
+<script src="../../assets/global/plugins/excanvas.min.js"></script> 
+<![endif]-->
+<script src="/assets/js-profile/jquery.min.js" type="text/javascript"></script>
+<script src="/assets/js-profile/jquery-migrate.min.js" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="/assets/js-profile/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/assets/js-profile/bootstrap.min.js" type="text/javascript"></script>
+<script src="/assets/js-profile/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="/assets/js-profile/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="/assets/js-profile/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="/assets/js-profile/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="/assets/js-profile/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="/assets/js-profile/bootstrap-switch.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="/assets/js-profile/select2.min.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="/assets/js-profile/metronic.js" type="text/javascript"></script>
+<script src="/assets/js-profile/layout.js" type="text/javascript"></script>
+<script src="/assets/js-profile/demo.js" type="text/javascript"></script>
+<script src="/assets/js-profile/form-samples.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+jQuery(document).ready(function() {    
+   // initiate layout and plugins
+   Metronic.init(); // init metronic core components
+Layout.init(); // init current layout
+Demo.init(); // init demo features
+   FormSamples.init();
+});
+</script>
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>
+
+

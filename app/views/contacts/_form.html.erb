@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link type="text/css" rel="stylesheet" href="http://www.dreamtemplate.com/dreamcodes/contact_forms/css/tsc_form_contact_dark.css" />
+  <link type="text/css" rel="stylesheet" href="http://www.dreamtemplate.com/dreamcodes/contact_forms/css/tsc_form_contact_light.css" />
+   
+  <!-- DC Contact Form JS -->
+  <script type="text/javascript" src="http://www.dreamtemplate.com/dreamcodes/contact_forms/js/tsc_form_contact.js"></script>
+</head>
+
+<body >
+<%= form_for(@contact,  :html => {:class => "tsc_form_contact_light frame tbar" , :style => "text-align:right;margin-left:60%;margin-top:-3%;margin-bottom:-1%;"}) do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+      <h3 style="font-family:BNazanin;    font-size: 143%;"> <b>تماس با ما </b> </h3>
+    <label for="name", style="margin-left:auto;font-family:BNazanin;    font-size: 107%;">نام</label>
+    <%= f.text_field :name , class: "form-input" , style: "margin-left:-2%;" %>
+    <!-- <input type="text" name="name" class="form-input" required /> -->
+    <label for="email" , style="margin-left:auto;font-family:BNazanin;    font-size: 107%;">ایمیل</label>
+    <%= f.text_field :email , class: "form-input" , style: "margin-left:-2%;"%>
+    <!-- <input type="email" name="email" class="form-input" required /> -->
+    <label for="subject" , style="margin-left:auto;font-family:BNazanin;    font-size: 107%;">موضوع </label>
+    <%= f.text_field :subject , class: "form-input" , style: "margin-left:-2%;"%>
+    <!-- input type="text" name="subject" class="form-input" /> -->
+    <label for="message" , style="margin-left:auto;font-family:BNazanin;    font-size: 107%;">متن پیام </label>
+    <%= f.text_area :body , class: "form-input" , style: "margin-left:-2%;height:100px;"%>
+    <!-- <textarea name="message" class="form-input" required></textarea> -->
+<!--     <div class="form-btn">
+    </div> -->
+<!--     <input class="form-btn" type="submit" value="Send Message" /> -->
+    <%= f.submit "ارسال" , :class=>"btn blue" ,style:"font-family:BNazanin;    font-size: 107%;" %>   
+      
+  <%end%>
+  <div>
+    
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+

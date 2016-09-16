@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head > 
+  <title>MemariVaMohit</title>
+
+
+  <meta charset="utf-8">
+
+    <meta name="author" content="ukieweb">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Font Awesome -->
+    <link type="text/css" media="all" href="/assets/Home _ ukieCard_files_css/font-awesome.min.css" rel="stylesheet">
+    <!-- Libs CSS -->
+    <link type="text/css" media="all" href="/assets/Home _ ukieCard_files_css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link type="text/css" media="all" href="/assets/Home _ ukieCard_files_css/animate.css" rel="stylesheet">
+    <!-- Template CSS -->
+    <link type="text/css" media="all" href="/assets/Home _ ukieCard_files_css/style.css" rel="stylesheet">
+    <!-- Switcher CSS -->
+    <link type="text/css" media="all" href="/assets/Home _ ukieCard_files_css/switcher.css" rel="stylesheet">
+    <link href="/assets/Home _ ukieCard_files_css/color-blue.css" rel="stylesheet" type="text/css" data-color="color-blue" media="all" id="stylesheet-new">
+    <!-- Responsive CSS -->
+    <link type="text/css" media="all" href="/assets/Home _ ukieCard_files_css/respons.css" rel="stylesheet">
+    <!-- Style Switcher -->
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://ukieweb.com/envato/ukiecard/style1/assets/img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://ukieweb.com/envato/ukiecard/style1/assets/img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://ukieweb.com/envato/ukiecard/style1/assets/img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" href="http://ukieweb.com/envato/ukiecard/style1/assets/img/favicons/apple-touch-icon.png">
+    <link rel="shortcut icon" href="http://ukieweb.com/envato/ukiecard/style1/assets/img/favicons/favicon.png">
+    <!-- Google Fonts -->
+    <link href="/assets/Home _ ukieCard_files_css/css" rel="stylesheet" type="text/css">
+
+
+
+  
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+<link href="/assets/css/template.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/assets/css/template.css" rel="stylesheet">
+  </head>
+  
+<body style="font-family:BYekan; border-left:30px outset #4b494f; border-right:30px outset rgb(158, 154, 156);    background-color: #f7f7f7; <% if params[:controller] == 'profiles' and  params[:action] == 'darbareyema' %>   background: url(/assets/slider/z1.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;%><%end%> 
+
+<% if params[:controller] == 'contacts' %> background-size:cover;background-image: url(/assets/14.jpg); %><%end%>">
+
+<!-- **************** header ***************** -->
+
+
+
+      <header id="header" class="">
+      <nav id="topbar" class="site-topbar visible-lg visible-md">
+          <div style="margin-left:43%">به سیستم آی ان آر همراه خوش آمدید</div>
+        </nav>
+          <nav class="navbar navbar-default">
+            
+        <%if  current_user.nil?  %>
+<div class="container-fluid" style="margin-right:33%;">
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float:right;">
+      
+      <ul class="nav navbar-nav">
+
+            <li class="dropdown">
+         
+           
+                           
+               <li><%= link_to "درباره ما", darbareyema_profiles_path,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+
+                <li><%= link_to "تماس با ما", new_contact_path,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+        </li>
+        <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+            <% if current_user.nil? %>
+                     <%= link_to "ورود", new_user_session_path , :class=>"navbar-brand" , style:"margin-left: -110%;color: #AD1137;font-size: 155%;font-family: BNazanin;"%>
+                      
+                  <% else %>
+                    <%= link_to 'خروج' , destroy_user_session_path ,:class =>"navbar-brand", style:"margin-left: -110%;color: #AD1137;font-size: 155%;font-family: BNazanin;" %>
+                  <% end %>
+      </div>
+      </ul>
+      <ul class="nav navbar-nav navbar-left">
+
+      <li><%= link_to "خانه", root_url,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+
+      </ul>
+      </div>
+      </div>
+        <%end%>
+        <%if not current_user.nil? and current_user.role == 'ادمین' %>
+        <div class="container-fluid" style="margin-right:20%;">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float:right;">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+                                       
+                         <li><%= link_to "درباره ما", darbareyema_profiles_path,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+
+                        <li><%= link_to "تماس با ما", new_contact_path,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+        </li>
+              <li><%= link_to "ایجاد کاربر", newUser_profiles_path,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+              <li> <%= link_to "لیست کاربران", profiles_path, style: "font-family:BNazanin;font-weight: bold;font-size: 132%;" %> </li>
+              
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+            <% if current_user.nil? %>
+                     <%= link_to "ورود", new_user_session_path , :class=>"navbar-brand" , style:"margin-left: -110%;color: #AD1137;font-size: 155%;font-family: BNazanin;"%>
+                      
+                  <% else %>
+                    <%= link_to 'خروج' , destroy_user_session_path ,:class =>"navbar-brand", style:"margin-left: -110%;color: #AD1137;font-size: 155%;font-family: BNazanin;" %>
+                  <% end %>
+      </div>
+      </ul>
+      <ul class="nav navbar-nav navbar-left">
+      <li><%= link_to "خانه", root_url,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+
+      </ul>
+      </div>
+      </div>
+        <%end%>
+        <%if not current_user.nil? and current_user.role == 'بیمار' %>
+        <div class="container-fluid" style="margin-right:25%;">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float:right;">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+         <li><%= link_to "خانه", root_url,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+          <li><%#= link_to "پروژه ها", ourprojects_profiles_path,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+                         <li><%= link_to "درباره ما", darbareyema_profiles_path,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+
+                        <li><%= link_to "تماس با ما", new_contact_path,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+        </li>
+              <li><%= link_to "ایجاد گزارش", new_report_path,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+              <li><%= link_to "پروفایل من", {:action=>"show", :controller=>"profiles" , :id => current_user.id} , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+            <% if current_user.nil? %>
+                     <%= link_to "ورود", new_user_session_path , :class=>"navbar-brand" , style:"margin-left: -110%;color: #AD1137;font-size: 155%;font-family: BNazanin;"%>
+                      
+                  <% else %>
+                    <%= link_to 'خروج' , destroy_user_session_path ,:class =>"navbar-brand", style:"margin-left: -110%;color: #AD1137;font-size: 155%;font-family: BNazanin;" %>
+                  <% end %>
+      </div>
+      </ul>
+      </div>
+      </div>
+        <%end%>
+        <%if not current_user.nil? and current_user.role == 'پزشک' %>
+        <div class="container-fluid" style="margin-right:20%;">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float:right;">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+         
+          <li><%= link_to "ایجاد کاربر", newUser_profiles_path,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+
+         
+          <li> <%= link_to "لیست بیماران", profiles_path, style: "font-family:BNazanin;font-weight: bold;font-size: 132%;" %> </li>
+
+            <li><%= link_to "مشاهده منشی", listmonshi_profiles_path,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+                                       
+                         <li><%= link_to "درباره ما", darbareyema_profiles_path,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+
+                        <li><%= link_to "تماس با ما", new_contact_path,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+        </li>
+
+
+              <li><%= link_to "پروفایل من", {:action=>"show", :controller=>"profiles" , :id => current_user.id} , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+            <% if current_user.nil? %>
+                     <%= link_to "ورود", new_user_session_path , :class=>"navbar-brand" , style:"margin-left: -110%;color: #AD1137;font-size: 155%;font-family: BNazanin;"%>
+                      
+                  <% else %>
+                    <%= link_to 'خروج' , destroy_user_session_path ,:class =>"navbar-brand", style:"margin-left: -110%;color: #AD1137;font-size: 155%;font-family: BNazanin;" %>
+                  <% end %>
+      </div>
+      </ul>
+        <ul class="nav navbar-nav navbar-left">
+      <li><%= link_to "خانه", root_url,:method => :get , style: "font-family:BNazanin;font-weight: bold;font-size: 132%;"%></li>
+
+      </ul>
+      </div>
+      </div>
+        <%end%>
+
+      
+      
+
+</nav>
+      </header>
+
+<!-- ************ payane header ************* -->
+
+ <% if notice.present? %>
+  <p class="notice"><%= notice %></p>
+  <% end %>
+  <% if alert.present? %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+
+<div style="margin-right:15%;margin-left:15%" >
+<%= yield %>
+</div>
+
+<!-- ********** footer ********** -->
+
+ <footer id="footer" class="site-footer" >
+          
+
+          <div id="sidebar-footer-2" style="padding-top:1%;padding-bottom:1%;font-size:17px;">
+          تلفن: ۶۶۵۶۹۰۹۱- ۰۲۱  فاکس: ۲۲۵۱۲۶۵۳ </br> 
+          Email: maede.daemi@gmail.com
+          </div>
+
+          <div class="copyright" style="padding-top:1%;padding-bottom:1%;font-size:17px;"><p>© 2015 TPEsoft</p></div>
+        </div>
+      </footer>
+      <!-- ************* payane footer *************** -->
+          <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.isotope.min.js?v=1.5.26"></script>
+    <script type="text/javascript" src="/assets/js/jquery.singlePageNav.min.js"></script>
+    <script type="text/javascript" src="/assets/js/main.js"></script>
+
+</body>
+</html>
